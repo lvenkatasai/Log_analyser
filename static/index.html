@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log Analysis Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h14a2 2 0 0 0 2-2V7.5L14.5 2H6a2 2 0 0 0-2 2v4"/><polyline points="14 2 14 8 20 8"/><path d="M2 15h10"/><path d="M9 18v-6"/></svg>
+                <span>LogAnalyzer</span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <header class="page-header">
+            <h1>Upload Logs</h1>
+            <p>Upload a .log file to instantly parse and visualize system events.</p>
+        </header>
+
+        <section class="upload-section">
+            <div id="drop-zone" class="drop-zone">
+                <div class="upload-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                </div>
+                <h3>Select a file or drag and drop</h3>
+                <p>Text or Log files up to 50MB</p>
+                <input type="file" id="file-input" accept=".log,.txt" hidden>
+            </div>
+            
+            <div id="loading" class="loading hidden">
+                <div class="spinner"></div>
+                <p>Analyzing...</p>
+            </div>
+        </section>
+
+        <section id="dashboard" class="dashboard hidden">
+            <div class="metrics-row">
+                <div class="metric-card">
+                    <span class="metric-label">Total Events</span>
+                    <h2 id="total-logs" class="metric-value">0</h2>
+                </div>
+                <div class="metric-card danger">
+                    <span class="metric-label">Anomalies Detected</span>
+                    <h2 id="total-anomalies" class="metric-value">0</h2>
+                </div>
+            </div>
+
+            <div class="panels-row">
+                <div class="panel">
+                    <h3>Distribution</h3>
+                    <div class="chart-container">
+                        <canvas id="levelChart"></canvas>
+                    </div>
+                </div>
+                <div class="panel">
+                    <h3>Identified Signatures</h3>
+                    <ul id="anomaly-list" class="anomaly-list">
+                        <!-- Anomalies injected here -->
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <script src="script.js"></script>
+</body>
+</html>

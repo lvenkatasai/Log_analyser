@@ -1,0 +1,9 @@
+[2023-10-27 10:00:00] [INFO] System started successfully
+[2023-10-27 10:00:05] [DEBUG] Initializing cache manager
+[2023-10-27 10:00:10] [INFO] Handling user request for /api/v1/data
+[2023-10-27 10:00:15] [WARNING] Deprecated API usage detected
+[2023-10-27 10:00:20] [ERROR] Database connection failed: Connection refused
+[2023-10-27 10:00:25] [INFO] Retrying database connection
+[2023-10-27 10:00:30] [ERROR] Authentication failed for user admin
+[2023-10-27 10:00:35] [CRITICAL] Timeout while waiting for external service
+[2023-10-27 10:00:40] [INFO] Shutting down gracefully
